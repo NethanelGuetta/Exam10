@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/connectDB";
 import cors from "cors";
 import userRoutes from './routes/uesrRoutes';
+import attackRoutes from './routes/attackRoutes';
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ connectDB();
 app.use(express.json());
 
 app.use('/api/users', userRoutes)
-
+app.use('/api/attacks', attackRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

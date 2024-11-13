@@ -3,8 +3,6 @@ import userModel from "../models/userModel";
 import { createuser } from "../services/userServices";
 import { generateToken } from "../utils/token";
 
-const resourcesList = require('../data/missiles.json')
-
 export const registerUser = async (req: Request, res: Response) => {
     const { username, password, organization, location } = req.body;
 
@@ -12,6 +10,7 @@ export const registerUser = async (req: Request, res: Response) => {
         const userExist = await userModel.findOne({ username });
         if (userExist) {
             res.status(401).json({ message: "User already exist" });
+            return
         }
         const newUser = await createuser({ username, password, organization, location });
         res.status(201).json({ message: "User registered successfully", user: newUser });
