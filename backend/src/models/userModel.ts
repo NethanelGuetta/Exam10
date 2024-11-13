@@ -11,7 +11,7 @@ export interface IUser extends Document {
     username: string;
     password: string;
     organization: "IDF" | "Houthis" | "IRGC" | "Hamas" | "Hezbollah";
-    location: "North" | "South" | "Center | West Bank" | null;
+    location: "North" | "South" | "Center" | "West Bank" | null;
     resources: [Imissile];
     budget: number;
     comparePassword(userPassword: string): Promise<boolean>;
