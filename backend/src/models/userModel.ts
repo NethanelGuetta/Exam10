@@ -14,7 +14,7 @@ export interface IUser extends Document {
     location: "North" | "South" | "Center | West Bank" | null;
     resources: [Imissile];
     budget: number;
-
+    comparePassword(userPassword: string): Promise<boolean>;
 };
 
 const UserSchema = new Schema<IUser>({

@@ -1,5 +1,5 @@
 import mongoose, { Types } from "mongoose";
-import userModel, { Imissile, IUser } from "../models/uesrModel";
+import userModel, { Imissile, IUser } from "../models/userModel";
 
 interface IResources {
     name: string;
