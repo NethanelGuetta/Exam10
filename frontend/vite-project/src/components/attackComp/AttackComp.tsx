@@ -67,14 +67,14 @@ const DashboardAttack: React.FC = () => {
     }
   };
 
-  const sendDefenceMessage = (id: string) => {
+  const sendDefenceMessage = () => {
     
     if (socket) {
         console.log(1111);
         
       const messageData: ChatMessage = {
         user: username,
-        message: { id: id, defenceMissileName: missileChosen, timeLeft: 1 },
+        message: { id: "123456", defenceMissileName: missileChosen, timeLeft: 1 },
         timestamp: new Date()
       };
 
