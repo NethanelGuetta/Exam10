@@ -1,7 +1,7 @@
-export interface Imissile {
-    name: string;
-    amount: number;
-}
+// export interface Imissile {
+//     name: string;
+//     amount: number;
+// }
 
 export interface UserType {
     _id: string;
@@ -9,6 +9,9 @@ export interface UserType {
     password: string;
     organization: string;
     location: string
-    resources: [Imissile];
+    resources: [{
+        name: string,
+        amount: number
+    }];
     budget: number;
 }

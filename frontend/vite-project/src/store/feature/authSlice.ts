@@ -5,13 +5,22 @@ import axios from "axios";
 const BASE_URL = 'http://localhost:5000/api/users'
 
 interface UserState {
-    user: UserType[] ;
+    user: UserType ;
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | null;
 };
 
 const initialState: UserState = {
-    user: [],
+    user: {    _id: "string",
+        username: "string",
+        password: "string",
+        organization: "string",
+        location: "string",
+        resources: [{
+            name: "string",
+            amount: 0
+        }],
+        budget: 0} ,
     status: 'idle',
     error: null,
 };  
@@ -61,7 +70,7 @@ export const userSlice = createSlice({
             .addCase(getUsers.fulfilled, (state, action) => {
                 if (action.payload) {
                     state.status = 'succeeded'
-                    state.user = action.payload
+                    // state.user = action.payload
                 }
             })
             .addCase(getUsers.rejected, (state, action) => {
@@ -84,7 +93,7 @@ export const userSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.status = 'succeeded'
-                state.user = action.payload
+                state.user = action.payload.user
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed'

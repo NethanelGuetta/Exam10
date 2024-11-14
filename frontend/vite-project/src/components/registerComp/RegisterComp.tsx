@@ -12,6 +12,8 @@ const Register: React.FC = () => {
     const [password, setPassword] = useState('');
     const [organization, setOrganization] = useState('');
     const [location, setLocation] = useState('');
+    const a = useSelector((state: RootState) => state.user.user);
+    console.log(a);
 
     const { error, status } = useSelector((state: RootState) => state.user);
 

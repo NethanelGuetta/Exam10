@@ -18,11 +18,13 @@ const Login: React.FC = () => {
     e.preventDefault();
     const user = { username, password };
     await dispatch(loginUser(user));
-    navigate("/register");
+    
+    navigate("/attack");
     
   };
 
   return (
+    <div className={styles.loginContainer}>
     <div className={styles.loginForm}>
       <h2>Login</h2>
       {status === 'loading' && <p>Loading...</p>}
@@ -41,7 +43,10 @@ const Login: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" disabled={status === 'loading'}>Login</button>
+
       </form>
+    </div>
+      <button className={ styles.registerButton} onClick={() => navigate("/register")}>Register</button>
     </div>
   );
 };

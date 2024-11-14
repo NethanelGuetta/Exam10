@@ -10,13 +10,12 @@ export const createAttack = async (data: Partial<IAttack>): Promise<any> => {
     const missileName = data.missileName;
     const location = data.location;
     const missileDetailsByName = allMissilesDatailsList.find((m: any) => m.name === missileName);
-    console.log(missileDetailsByName);
-    console.log(missileName);
-    console.log(location);
-
+    // console.log(missileDetailsByName);
+    // console.log(missileName);
+    // console.log(location);
 
     const newAttack = new attackModel({ missileName, location, missileDetails: missileDetailsByName, status: "Launched" });
-    console.log(newAttack);
+    // console.log(newAttack);
 
     await newAttack.save();
     return newAttack
@@ -27,11 +26,9 @@ export const checkIfGood = async (defenceMissileName: string, attackId: string, 
 
     const missileDetailsByName = allMissilesDatailsList.find((m: any) => m.name === defenceMissileName);
     const defenceMissileSpeed = missileDetailsByName?.speed || 0; //check if speed is undefined
-    console.log(defenceMissileSpeed);
+    // console.log(defenceMissileSpeed);
     
     const attackMissileSpeed = (attack?.missileDetails as IMissileDetails)?.speed ;
-
-    console.log(timeLeft);
 
     if (attack) {
         if (attack.status !== "Launched") {
@@ -40,8 +37,8 @@ export const checkIfGood = async (defenceMissileName: string, attackId: string, 
         if (missileDetailsByName?.intercepts.includes(attack.missileName)) {
 
             if (defenceMissileSpeed > timeLeft) {
-                attack.status = "Hit";
-                await attack.save();
+                // attack.status = "Hit";
+                // await attack.save();
                 return false;
             } else {
                 attack.status = "Intercepted";
